@@ -26,10 +26,10 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
 
-  ////////////////// Controllers
+  ////// Controllers
   XboxController DriverController = new XboxController(0);
 
-  ///////////////////// Motors
+  ////// Motors
   /// Left
   TalonFX MotorFL = new TalonFX(1);
   TalonFX MotorRL = new TalonFX(2);
@@ -60,16 +60,16 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
 
-    ///////////////////// Smart Dashboard
+    ////// Smart Dashboard
     /// Motor Speed
-    SmartDashboard.putNumber("MotorLeftSpeed", DriverController.getLeftY());
-    SmartDashboard.putNumber("MotorRightSpeed", -DriverController.getRightY());
+    SmartDashboard.putNumber("MotorLeftSpeed", DriverController.getLeftY() * 12);
+    SmartDashboard.putNumber("MotorRightSpeed", -DriverController.getRightY() * 12);
     
 
-    ///////////////////// Applying motor Speed
+    ////// Applying motor Speed
     // Get motor speed
-    double LeftSpeed = (SmartDashboard.getNumber("MotorLeftSpeed", 0) * 12);
-    double RightSpeed = (SmartDashboard.getNumber("MotorRightSpeed", 0) * 12);
+    double LeftSpeed = (SmartDashboard.getNumber("MotorLeftSpeed", 0));
+    double RightSpeed = (SmartDashboard.getNumber("MotorRightSpeed", 0));
     
     
     // Set motor speed
