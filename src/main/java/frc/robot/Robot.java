@@ -5,6 +5,7 @@
 package frc.robot;
 
 import java.io.Console;
+import java.util.function.Function;
 
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
@@ -62,8 +63,8 @@ public class Robot extends TimedRobot {
 
     ////// Smart Dashboard
     /// Motor Speed
-    SmartDashboard.putNumber("MotorLeftSpeed", DriverController.getLeftY() * 12);
-    SmartDashboard.putNumber("MotorRightSpeed", -DriverController.getRightY() * 12);
+    SmartDashboard.putNumber("MotorLeftSpeed", Math.floor((DriverController.getLeftY() * 12) * 10) * .1);
+    SmartDashboard.putNumber("MotorRightSpeed", -Math.floor((DriverController.getRightY() * 12) * 10) * .1);
     
 
     ////// Applying motor Speed
